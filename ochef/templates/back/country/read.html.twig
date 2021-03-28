@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de l'ingrédient {{ country.name }}{% endblock %}
+
+{% block body %}
+
+<h1> Que souhaitez-vous faire de ce Pays ? </h1>
+
+<h1> {{ country.name }}</h1>
+
+<a class="btn btn-success"  href="{{ path('admin_country_edit', {"id" : country.id}) }}">Éditer</a> 
+
+{{ include('back/country/delete.html.twig') }}
+
+{% endblock %}

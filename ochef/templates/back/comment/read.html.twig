@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Commentaires{% endblock %}
+
+{% block body %}
+
+<h1> Que souhaitez-vous faire de ce commentaire</h1>
+
+<h2> {{ comment.title }}  <a class="btn btn-success"  href="{{ path('admin_comment_edit', {"id" : comment.id}) }}">Modifier</a> - 
+
+
+
+                <td>Titre :{{ comment.title}}</td> <br>             
+                <td>Auteur :{{ comment.author }}</td> <br>
+                <td>User :{{ comment.user.name }}</td> <br>
+                <td>Description:{{ comment.Description }}</td> <br>
+
+                <td>Recette Associée :{{ comment.recipe.name }}</td><br>
+{{ include('back/comment/delete.html.twig') }}      
+
+{% endblock %}

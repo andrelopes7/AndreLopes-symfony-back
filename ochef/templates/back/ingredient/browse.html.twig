@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des ingrédients{% endblock %}
+
+{% block body %}
+<h1> Liste des ingrédients</h1>
+ <button type="button" class="btn btn-warning m-3"><a href="{{ path('admin_ingredient_add') }}">Créer un nouvel ingrédient</a></button>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for ingredient in ingredient_list %}
+  <div class="col"><li class="list-group-item"><a href="{{ path('admin_ingredient_read', {id : ingredient.id}) }}">{{ ingredient.name }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des recettes{% endblock %}
+
+{% block body %}
+
+<h1> Que souhaitez-vous faire de cette recette ?</h1>
+
+<h2> {{ recipe.name }}  <a class="btn btn-success"  href="{{ path('admin_recipe_edit', {"id" : recipe.id}) }}">Modifier</a>  
+</h2>
+
+ 
+                <td>Type de plat :{{ recipe.category.name }}</td> <br>             
+                <td>Pays :{{ recipe.country.name }}</td> <br>
+                <td>Image:{{ recipe.picture }}</td> <br>
+                <td>Temps de préparation :{{ recipe.time }}</td><br>
+                <td>Nombre de personnes :{{ recipe.portions }}</td><br>
+                <td>Étapes :{{ recipe.steps }}</td><br>
+               Commentaires : 
+               <ul>
+                {% for commentRecipe in recipe.comment %}
+                    <li>{{ commentRecipe.title }}</li>
+                {% endfor %}
+                </ul>
+                
+{{ include('back/recipe/delete.html.twig') }}
+{% endblock %}

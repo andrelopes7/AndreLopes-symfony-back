@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Commentaire{% endblock %}
+
+{% block body %}
+<h1> Liste des commentaires</h1>
+ <button type="button" class="btn btn-warning m-3"><a href="{{ path('admin_comment_add') }}">Créer un nouveau Commentaire</a></button>
+
+<div class="container">
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-2">
+
+    {% for comment in comments %}
+  <div class="col"><li class="list-group-item"><a href="{{ path('admin_comment_read', {id : comment.id}) }}">{{ comment.title }}</a></li></div>
+    {% endfor %}
+     
+   </div>
+</div>
+
+{% endblock %}

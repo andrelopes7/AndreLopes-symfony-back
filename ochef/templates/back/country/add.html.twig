@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout un Pays {% endblock %}
+
+{% block body %}
+<h1>Ajouter un Pays</h1>
+
+
+{{ include('back/country/_form.html.twig') }}
+
+
+    
+    <a href="{{ path('admin_country_browse') }}">retour à la liste</a>
+
+
+{{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition d'une recette{{ recipe.name }}{% endblock %}
+
+{% block body %}
+<h1>Modifier une recette</h1>
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.name) }}
+
+    <button type="submit"> Modifier </button>
+
+{{ form_end(form) }}
+
+{{ include('back/recipe/delete.html.twig') }}
+
+{% endblock %}

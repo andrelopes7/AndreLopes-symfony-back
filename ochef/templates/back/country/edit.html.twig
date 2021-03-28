@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition de l'ingrédient{{ country.name }}{% endblock %}
+
+{% block body %}
+<h1>Modifier un ingrédient</h1>
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.name) }}
+
+    <button type="submit"> Modifier </button>
+
+{{ form_end(form) }}
+
+{{ include('back/country/delete.html.twig') }}
+
+{% endblock %}

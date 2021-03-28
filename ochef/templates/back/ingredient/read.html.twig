@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de l'ingrédient {{ ingredient.name }}{% endblock %}
+
+{% block body %}
+<h1> {{ ingredient.name }}</h1>
+
+<a class="btn btn-success"  href="{{ path('admin_ingredient_edit', {"id" : ingredient.id}) }}">Éditer</a> 
+
+{{ include('back/ingredient/delete.html.twig') }}
+
+{% endblock %}

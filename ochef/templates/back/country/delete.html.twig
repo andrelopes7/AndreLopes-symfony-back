@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('admin_country_delete', {'id': country.id}) }}" 
+     onsubmit="return confirm('êtes-vous vraiment sûr de vouloir supprimer ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete-country' ~ country.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+</form>

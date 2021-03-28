@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ingredient{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un nouvel ingrédient</h1>
+
+    {{ include('ingredient/_form.html.twig') }}
+
+    <a href="{{ path('ingredient_index') }}">back to list</a>
+{% endblock %}

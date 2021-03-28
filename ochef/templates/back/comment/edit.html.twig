@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Commentaires{% endblock %}
+
+{% block body %}
+    <h1>Liste des Commentaires</h1>
+
+<button type="button" class="btn btn-warning m-3"><a href="{{ path('admin_comment_add') }}">Créer un Nouveau Commentaire</a></button>
+
+<h1>Modifier un ingrédient</h1>
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.title) }}
+
+
+    <button type="submit"> Modifier </button>
+
+{{ form_end(form) }}
+
+
+{% endblock %}

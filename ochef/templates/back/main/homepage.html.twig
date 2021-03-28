@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur Ochef{% endblock %}
+
+{% block body %}
+
+<ul class="list-group list-group-flush">
+    {% for recipe in recipe_list %}
+    <li class="list-group-item"><a href="{{ path('admin_recipe_browse', {id : recipe.id}) }}">{{ recipe.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

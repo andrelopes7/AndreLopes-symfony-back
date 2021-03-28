@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des recettes{% endblock %}
+
+{% block body %}
+    <h1>Liste des recettes</h1>
+
+<button type="button" class="btn btn-warning m-3"><a href="{{ path('admin_recipe_add') }}">Créer une nouvelle recette</a></button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Auteur</th>
+                <th>Name</th>
+                <th>Catégorie</th>
+                <th>Pays</th> 
+                <th>Picture</th>
+                <th>Commentaires<th>
+                <th>Created_at</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recipe in recipe_list %}
+            <tr>
+                <td>{{ recipe.id }}</td>
+                <td>{{ recipe.user.name }}</td>               
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.category.name }}</td>               
+                <td>{{ recipe.country.name }}</td>
+                <td>{{ recipe.picture }}</td>
+                <td>{{ recipe.comment|length }}</td> 
+                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_recipe_read', {'id': recipe.id}) }}">Montrer</a>
+                    <a href="{{ path('admin_recipe_edit', {'id': recipe.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    
+{% endblock %}

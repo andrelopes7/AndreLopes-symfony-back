@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipe{% endblock %}
+
+{% block body %}
+    <h1>Recipe</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ recipe.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ recipe.name }}</td>
+            </tr>
+             <tr>
+                <th>Ingrédients</th>
+                {% for ingredient in recipe.ingredient %}
+                    <td> {{ ingredient.name }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ recipe.steps }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ recipe.picture }}</td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>{{ recipe.category }}</td>
+            </tr>
+            <tr>
+                <th>country</th>
+                <td>{{ recipe.country }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('recipe_index') }}">back to list</a>
+
+    <a href="{{ path('recipe_edit', {'id': recipe.id}) }}">edit</a>
+
+    {{ include('recipe/_delete_form.html.twig') }}
+{% endblock %}
